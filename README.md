@@ -98,6 +98,17 @@ npm start
 
 ---
 
+## SEO
+
+- **Metadata:** `app/metadata.js` — title, description, keywords, Open Graph, Twitter cards.
+- **Sitemap:** Auto-generated at `/sitemap.xml` (see `app/sitemap.js`).
+- **Robots:** Auto-generated at `/robots.txt` (see `app/robots.js`).
+- **Structured data:** JSON-LD for Person in `app/layout.js`.
+
+After going live, set `siteConfig.url` in `app/metadata.js` to your live URL and submit the sitemap in Google Search Console.
+
+---
+
 ## Deployment
 
 Deploy on [Vercel](https://vercel.com) (recommended for Next.js):

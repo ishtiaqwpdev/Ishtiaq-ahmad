@@ -6,7 +6,7 @@ import { MdMailOutline, MdPhone, MdCalendarToday, MdLocationOn } from "react-ico
 import { FaFacebook, FaTwitter, FaInstagram, FaAngleDown, FaLinkedin } from "react-icons/fa";
 
 const Aside = () => {
-  const [show,setShow] = useState(false)
+  const [show, setShow] = useState(true)
   return (
     <aside className={`sidebar ${show ? 'active':''}`}>
       <div className="sidebar-info">
