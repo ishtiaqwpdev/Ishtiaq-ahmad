@@ -19,51 +19,51 @@ const About = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "E-commerce Store Owner",
+      name: "James Mitchell",
+      role: "E-commerce Business Owner, USA",
       image: null,
-      initial: "S",
-      text: "Manan transformed our online store with a custom WordPress and WooCommerce solution. The site is not only beautiful but also performs exceptionally well. Our sales have increased by 40% since the launch!",
+      initial: "J",
+      text: "Ishtiaq built our WooCommerce store from scratch. The design is clean, professional, and our conversions have gone up significantly since launch!",
       project: {
-        title: "Premium E-commerce Platform",
-        description: "A fully customized WordPress and WooCommerce e-commerce platform with advanced product filtering, real-time inventory management, and seamless payment gateway integration.",
-        technologies: ["WordPress", "WooCommerce", "PHP", "MySQL", "JavaScript", "CSS3"],
-        github: "https://github.com/yourusername/wordpress-ecommerce",
-        live: "https://premium-store.com",
-        duration: "3 months",
-        challenges: "Implemented complex product variations, custom shipping rules, and multi-currency support while maintaining optimal performance."
+        title: "E-commerce Store",
+        description: "WooCommerce store built from scratch with clean, professional design and improved conversions.",
+        technologies: ["WordPress", "WooCommerce", "Elementor"],
+        github: "#",
+        live: "#",
+        duration: "—",
+        challenges: "—"
       }
     },
     {
-      name: "Michael Chen",
-      role: "Tech Lead",
+      name: "Emily Davis",
+      role: "Startup Founder, USA",
+      image: null,
+      initial: "E",
+      text: "Working with Ishtiaq on our company website was an amazing experience. He understood our vision perfectly and delivered beyond expectations.",
+      project: {
+        title: "Company Website",
+        description: "Company website delivered with vision understood and expectations exceeded.",
+        technologies: ["WordPress", "Theme & Plugin Customization"],
+        github: "#",
+        live: "#",
+        duration: "—",
+        challenges: "—"
+      }
+    },
+    {
+      name: "Michael Roberts",
+      role: "Digital Agency Client, USA",
       image: null,
       initial: "M",
-      text: "Working with Manan on our React-based dashboard was a pleasure. His attention to detail and modern frontend practices resulted in a highly performant and maintainable application.",
+      text: "Ishtiaq's expertise in WordPress and theme and plugin customization is top-notch. He delivered our project on time with excellent quality. Highly recommended!",
       project: {
-        title: "Enterprise Analytics Dashboard",
-        description: "A modern, responsive analytics dashboard built with React, featuring real-time data visualization, interactive charts, and advanced filtering capabilities.",
-        technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "Redux Toolkit"],
-        github: "https://github.com/yourusername/react-dashboard",
-        live: "https://analytics-demo.com",
-        duration: "4 months",
-        challenges: "Optimized performance for large datasets and implemented complex data visualization features while maintaining smooth user experience."
-      }
-    },
-    {
-      name: "David Wilson",
-      role: "Startup Founder",
-      image: null,
-      initial: "D",
-      text: "Manan's expertise in MERN stack development helped us build a scalable social media platform. His clean code and architecture decisions made it easy to maintain and scale our application.",
-      project: {
-        title: "Social Media Platform",
-        description: "A full-featured social media platform with real-time messaging, content sharing, and user interactions, built using the MERN stack.",
-        technologies: ["MongoDB", "Express.js", "React", "Node.js", "Socket.io", "AWS"],
-        github: "https://github.com/yourusername/mern-social",
-        live: "https://social-platform.com",
-        duration: "5 months",
-        challenges: "Implemented real-time features, handled large-scale data operations, and ensured high availability with proper error handling and monitoring."
+        title: "Agency Project",
+        description: "WordPress and theme and plugin customization project delivered on time with excellent quality.",
+        technologies: ["WordPress", "Theme & Plugin Customization"],
+        github: "#",
+        live: "#",
+        duration: "—",
+        challenges: "—"
       }
     }
   ];
@@ -102,28 +102,33 @@ const About = () => {
           <h2 className="h2 article-title mt20">About me</h2>
         </header>
         <section className="about-text">
-          <p>
-            I'm a frontend developer with over 3 years of going hands-on
-            experience in creating responsive and engaging user interfaces.
-            Recently, I've expanded my skill set to include WordPress with
-            WooCommerce, where I have 5 months of experience in crafting
-            customized websites and e-commerce solutions. Currently, I'm diving
-            into full-stack development with the MERN stack and have already
-            completed three projects, applying my learning to build scalable,
-            dynamic applications.
+          <p className="about-tagline">
+            Custom Website &amp; WordPress Developer | 5+ Years Experience | 100+ Projects Delivered
           </p>
           <p>
-            I'm proud to be part of XemenSolution in Multan, where I collaborate
-            with a talented team to deliver impactful solutions. I hold a
-            Bachelor's degree in Computer Science from Virtual University,
-            Vehari campus, and am always excited about learning, growing, and
-            connecting with others in the tech community. Let's connect!
+            I'm a Custom Website and WordPress Developer with over 5 years of experience in both corporate and freelance industries. I've delivered 100+ websites, helping brands and businesses with modern, user-focused web solutions. My expertise is in WordPress, Elementor, WooCommerce, ACF, and theme and plugin customization using HTML, CSS, JavaScript, and PHP. I build dynamic business sites, online stores, and tailored web solutions that look great and perform flawlessly.
           </p>
         </section>
 
         <section className="service">
           <h3 className="h3 service-title">What I'm doing</h3>
           <ul className="service-list">
+            <li className="service-item">
+              <div className="service-icon-box">
+                <Image
+                  src={webIcon}
+                  alt="WordPress development icon"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="service-content-box">
+                <h4 className="h4 service-item-title">WordPress Development</h4>
+                <p className="service-item-text">
+                  Building customized WordPress websites with Elementor, WooCommerce, and ACF for businesses of all sizes.
+                </p>
+              </div>
+            </li>
             <li className="service-item">
               <div className="service-icon-box">
                 <Image
@@ -134,43 +139,9 @@ const About = () => {
                 />
               </div>
               <div className="service-content-box">
-                <h4 className="h4 service-item-title">Web design</h4>
+                <h4 className="h4 service-item-title">Web Design (HTML &amp; CSS)</h4>
                 <p className="service-item-text">
-                  The most modern and high-quality design made at a professional
-                  level.
-                </p>
-              </div>
-            </li>
-            <li className="service-item">
-              <div className="service-icon-box">
-                <Image
-                  src={webIcon}
-                  alt="Web development icon"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <div className="service-content-box">
-                <h4 className="h4 service-item-title">Web development</h4>
-                <p className="service-item-text">
-                  High-quality development of sites at the professional level.
-                </p>
-              </div>
-            </li>
-            <li className="service-item">
-              <div className="service-icon-box">
-                <Image
-                  src={mobIcon}
-                  alt="mobile app icon"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <div className="service-content-box">
-                <h4 className="h4 service-item-title">Mobile Responsive</h4>
-                <p className="service-item-text">
-                  As a stunning desinger i create Mobile optimize professioanl
-                  websites.
+                  Creating modern, high-quality layouts and responsive designs with HTML and CSS.
                 </p>
               </div>
             </li>
@@ -179,10 +150,25 @@ const About = () => {
                 <FaCode color="#FFCD67" fontSize={39} />
               </div>
               <div className="service-content-box">
-                <h4 className="h4 service-item-title">Problem Solving</h4>
+                <h4 className="h4 service-item-title">WooCommerce Solutions</h4>
                 <p className="service-item-text">
-                  I love solving problems whether programming problems or real
-                  life problems.
+                  Setting up and customizing WooCommerce stores for seamless e-commerce experiences.
+                </p>
+              </div>
+            </li>
+            <li className="service-item">
+              <div className="service-icon-box">
+                <Image
+                  src={mobIcon}
+                  alt="PHP and JavaScript icon"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="service-content-box">
+                <h4 className="h4 service-item-title">PHP &amp; JavaScript</h4>
+                <p className="service-item-text">
+                  Theme and plugin customization using PHP and JavaScript for dynamic, interactive WordPress websites.
                 </p>
               </div>
             </li>

@@ -1,16 +1,18 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { defaultMetadata } from "./metadata";
+import { siteConfig } from "./metadata";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = defaultMetadata;
+export const metadata = {
+  title: siteConfig.name,
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href={defaultMetadata.openGraph.url} />
         <meta name="theme-color" content="#ffd60a" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -18,7 +20,10 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffd60a" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   );
 }

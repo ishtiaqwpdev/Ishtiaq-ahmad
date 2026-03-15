@@ -13,31 +13,33 @@ const PersonalPortfolio = () => {
   const [lightMode, setLightMode] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false); // Ensure no flicker
 
-  // Apply theme based on state
+  // Apply theme based on state (safe when document/body not yet available)
   const applyTheme = (isLightMode) => {
+    if (typeof document === "undefined" || !document.body) return;
     const theme = isLightMode ? "light" : "dark";
-    document.querySelector("body").setAttribute("data-theme", theme);
+    document.body.setAttribute("data-theme", theme);
   };
 
   // Toggle theme and save preference in localStorage
   const toggleTheme = () => {
-    const newLightMode = !lightMode; // Toggle mode
-    setLightMode(newLightMode); // Update state
-    applyTheme(newLightMode); // Apply theme
-    localStorage.setItem("theme", newLightMode ? "light" : "dark"); // Save preference
+    const newLightMode = !lightMode;
+    setLightMode(newLightMode);
+    applyTheme(newLightMode);
+    try {
+      localStorage.setItem("theme", newLightMode ? "light" : "dark");
+    } catch (_) {}
   };
 
   // Load theme preference on component mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const isLightMode = savedTheme === "light"; // Check if light mode is saved
-    setLightMode(isLightMode); // Set state based on saved preference
-    applyTheme(isLightMode); // Apply theme based on preference
-    setIsHydrated(true); // Mark as hydrated
+    try {
+      const savedTheme = localStorage.getItem("theme");
+      const isLightMode = savedTheme === "light";
+      setLightMode(isLightMode);
+      applyTheme(isLightMode);
+    } catch (_) {}
+    setIsHydrated(true);
   }, []);
-
-  // Only render once hydration is complete
-  if (!isHydrated) return null;
 
   return (
     <>

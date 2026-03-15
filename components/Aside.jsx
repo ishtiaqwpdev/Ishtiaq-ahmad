@@ -12,14 +12,14 @@ const Aside = () => {
       <div className="sidebar-info">
         <Image
           src={mnnan}
-          alt="Manan Mazhar"
+          alt="Ishtiaq Ahmad"
           className="w-auto h-auto avatar-box"
-          height={100}
-          width={100}
+          height={200}
+          width={200}
         />
         <div className="info-content">
-          <h1 className="name">Manan Mazhar</h1>
-          <p className="title">Web Developer</p>
+          <h1 className="name">Ishtiaq Ahmad</h1>
+          <p className="title">Custom Website & WordPress Developer</p>
         </div>
         <button className="info_more-btn" onClick={()=>setShow(!show)}>
           <FaAngleDown className='text-[#ffda6b]'/>
@@ -34,8 +34,8 @@ const Aside = () => {
             </div>
             <div className="contact-info">
               <p className="contact-title">Email</p>
-              <a href="#" className="contact-link">
-              mnnanhavibhutta@gmail.com
+              <a href="mailto:ig020888@gmail.com" className="contact-link">
+              ig020888@gmail.com
               </a>
             </div>
           </li>
@@ -45,8 +45,8 @@ const Aside = () => {
             </div>
             <div className="contact-info">
               <p className="contact-title">Phone</p>
-              <a href="tel:+923186812911" className="contact-link">
-                +923186812911
+              <a href="tel:+923220541903" className="contact-link">
+                03220541903
               </a>
             </div>
           </li>
@@ -56,7 +56,7 @@ const Aside = () => {
             </div>
             <div className="contact-info">
               <p className="contact-title">Birthday</p>
-              <time dateTime="1982-06-23">April 28, 2003</time>
+              <time dateTime="2001-05-18">May 18, 2001</time>
             </div>
           </li>
           <li className="contact-item">
@@ -64,15 +64,15 @@ const Aside = () => {
               <MdLocationOn color="goldenrod"  />
             </div>
             <div className="contact-info">
-              <p className="contact-title">Vehair</p>
-              <address>vehari,punjab,pakistan</address>
+              <p className="contact-title">Location</p>
+              <address>Vehari, Punjab, Pakistan</address>
             </div>
           </li>
         </ul>
 
         <ul className="social-list ">
           <li className="social-item">
-            <a href="https://www.linkedin.com/in/manan-mazhar-453b9b2b2/" className="social-link">
+            <a href="https://www.linkedin.com/in/ishtiaq-ahmad-418373295" className="social-link">
               <FaLinkedin   className="text-gray-300"/>
             </a>
           </li>
@@ -82,7 +82,7 @@ const Aside = () => {
             </a>
           </li>
           <li className="social-item">
-            <a href="#" className="social-link">
+            <a href="https://www.instagram.com/ishtiaq_ahmad13/" target="_blank" rel="noopener noreferrer" className="social-link">
               <FaInstagram className="text-gray-300"  />
             </a>
           </li>

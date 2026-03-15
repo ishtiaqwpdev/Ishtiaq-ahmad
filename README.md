@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ishtiaq Ahmad — Portfolio
+
+Personal portfolio website for **Ishtiaq Ahmad**, Custom Website & WordPress Developer. Built with Next.js 15, React, and Tailwind CSS.
+
+🔗 **Live:** [Add your Vercel/Netlify URL here]
+
+---
+
+## Features
+
+- **About** — Bio, services (WordPress, Web Design, WooCommerce, PHP & JavaScript), and testimonials
+- **Resume** — Education, experience, and skills (WordPress, HTML/CSS, JavaScript, PHP)
+- **Portfolio** — WordPress project showcase with category filter and project details
+- **Contact** — Contact form and info
+- **Sticky WhatsApp** — Quick contact via WhatsApp
+- **Dark/Light theme** — Toggle with persisted preference
+- **Responsive** — Mobile-first layout
+
+---
+
+## Tech Stack
+
+| Category    | Tech |
+|------------|------|
+| Framework  | [Next.js 15](https://nextjs.org/) (App Router) |
+| UI         | React 18, Tailwind CSS |
+| Icons      | React Icons (Fa, Md) |
+| Animation  | Framer Motion |
+| Forms      | Formik, Yup |
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm / yarn / pnpm
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/ishtiaqwpdev/Ishtiaq-ahmad.git
+cd Ishtiaq-ahmad
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+├── app/
+│   ├── layout.js          # Root layout, metadata
+│   ├── page.js            # Home (PersonalPortfolio)
+│   ├── metadata.js        # Site config (name, links)
+│   ├── personal-portfolio/
+│   │   └── page.jsx       # Main portfolio layout & nav
+│   └── projects/
+│       └── [slug]/        # Dynamic project detail page
+├── components/
+│   ├── About.jsx          # About, services, testimonials
+│   ├── Aside.jsx          # Sidebar (profile, contact, social)
+│   ├── Contact.jsx        # Contact form
+│   ├── Portfolio.jsx      # Portfolio grid & modal
+│   ├── Resume.jsx         # Education, experience, skills
+│   └── WhatsAppFloat.jsx  # Sticky WhatsApp button
+├── public/
+│   └── assets/
+│       ├── Data.js        # Portfolio data & project list
+│       └── images/        # Profile image, icons, project images
+└── package.json
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Configuration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Site name & links:** `app/metadata.js`
+- **Profile & contact:** `components/Aside.jsx`
+- **Portfolio projects:** `public/assets/Data.js`
+- **WhatsApp number:** `components/WhatsAppFloat.jsx`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Deployment
+
+Deploy on [Vercel](https://vercel.com) (recommended for Next.js):
+
+1. Push this repo to GitHub.
+2. Import project on [Vercel](https://vercel.com/new).
+3. Deploy; Vercel will detect Next.js and set the build command.
+
+---
+
+## License
+
+This project is for personal/portfolio use.
+
+---
+
+## Contact
+
+**Ishtiaq Ahmad**  
+Custom Website & WordPress Developer  
+
+- 📧 Email: ig020888@gmail.com  
+- 📱 Phone: 03220541903  
+- 💼 [LinkedIn](https://www.linkedin.com/in/ishtiaq-ahmad-418373295)  
+- 📷 [Instagram](https://www.instagram.com/ishtiaq_ahmad13/)
