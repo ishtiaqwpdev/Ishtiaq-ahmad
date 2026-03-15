@@ -366,11 +366,17 @@ main {
 .sidebar.active {
   max-height: 85vh;
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebar-info {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
@@ -396,6 +402,7 @@ main {
 
 .info-content {
   min-width: 0;
+  text-align: center;
 }
 
 .info-content .name {
@@ -1957,6 +1964,8 @@ textarea.form-input::-webkit-resizer { display: none; }
     min-width: 260px;
     flex-shrink: 0;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     display: flex;
     flex-direction: column;
   }
