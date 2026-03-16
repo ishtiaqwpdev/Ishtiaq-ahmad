@@ -9,7 +9,7 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 
 const PersonalPortfolio = () => {
-  const [activeRoute, setActiveRoute] = useState("about");
+  const [activeRoute, setActiveRoute] = useState("portfolio");
   const [lightMode, setLightMode] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false); // Ensure no flicker
 

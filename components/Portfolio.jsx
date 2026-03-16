@@ -7,6 +7,8 @@ import { projectcategories } from "@/public/assets/Data";
 const Portfolio = () => {
   const [activeCate, setActiveCate] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [loadedImages, setLoadedImages] = useState({});
+  const [visibleCount, setVisibleCount] = useState(6);
 
   // Function to handle category click
   const handleClick = (category) => {
@@ -21,6 +23,33 @@ const Portfolio = () => {
   // Function to close project modal
   const closeProjectModal = () => {
     setSelectedProject(null);
+  };
+
+  const handleImageLoad = (src) => {
+    setLoadedImages((prev) => ({ ...prev, [src]: true }));
+  };
+
+  // Flatten projects based on active category
+  const getFilteredProjects = () => {
+    const projects = [];
+    projectcategories.forEach((item) => {
+      if (activeCate === "All" || item.category === activeCate) {
+        if (item.projectDetail) {
+          item.projectDetail.forEach((project) => {
+            projects.push({ ...project, category: item.category });
+          });
+        }
+      }
+    });
+    return projects;
+  };
+
+  const filteredProjects = getFilteredProjects();
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+  const hasMore = visibleProjects.length < filteredProjects.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 6);
   };
 
   return (
@@ -47,54 +76,62 @@ const Portfolio = () => {
 
           {/* Project List */}
           <ul className="project-list">
-            {projectcategories.map((item) => {
-              if (activeCate === "All" || item.category === activeCate) {
-                return item.projectDetail
-                  ? item.projectDetail.map((project, index) => (
-                      <li className="project-item active" key={index}>
-                        <div className="project-content">
-                          <div className="project-img">
-                            <div className="project-item-icon-box">
-                              <IoMdEye />
-                            </div>
-                            <div className="image-container">
-                              <Image
-                                src={project.src}
-                                alt={project.name}
-                                height={400}
-                                width={800}
-                                className="project-image"
-                              />
-                            </div>
-                          </div>
-                          <div className="project-info">
-                            <h3 className="project-title">{project.name}</h3>
-                            <p className="project-category">{item.category}</p>
-                            <div className="project-links">
-                              <button
-                                onClick={() => openProjectModal(project)}
-                                className="view-details-btn"
-                              >
-                                View Details
-                              </button>
-                              <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="live-demo-btn"
-                              >
-                                <FaExternalLinkAlt /> Live Demo
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    ))
-                  : null;
-              }
-              return null;
-            })}
+            {visibleProjects.map((project, index) => (
+              <li className="project-item active" key={`${project.name}-${index}`}>
+                <div className="project-content">
+                  <div className="project-img">
+                    <div className="project-item-icon-box">
+                      <IoMdEye />
+                    </div>
+                    <div
+                      className={`image-container ${
+                        loadedImages[project.src] ? "image-loaded" : "image-loading"
+                      }`}
+                    >
+                      <Image
+                        src={project.src}
+                        alt={project.name}
+                        height={400}
+                        width={800}
+                        className={`project-image ${
+                          loadedImages[project.src] ? "project-image-visible" : "project-image-hidden"
+                        }`}
+                        onLoadingComplete={() => handleImageLoad(project.src)}
+                      />
+                    </div>
+                  </div>
+                  <div className="project-info">
+                    <h3 className="project-title">{project.name}</h3>
+                    <p className="project-category">{project.category}</p>
+                    <div className="project-links">
+                      <button
+                        onClick={() => openProjectModal(project)}
+                        className="view-details-btn"
+                      >
+                        View Details
+                      </button>
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="live-demo-btn"
+                      >
+                        <FaExternalLinkAlt /> Live Demo
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))}
           </ul>
+
+          {hasMore && (
+            <div className="load-more-wrapper">
+              <button className="load-more-btn" onClick={handleLoadMore}>
+                Load More
+              </button>
+            </div>
+          )}
         </section>
 
         {/* Project Detail Modal */}
@@ -165,6 +202,59 @@ const Portfolio = () => {
 
           .project-info {
             padding: 1.5rem;
+          }
+
+          .image-container {
+            position: relative;
+            overflow: hidden;
+          }
+
+          .image-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0.05) 0%,
+              rgba(255, 255, 255, 0.15) 50%,
+              rgba(255, 255, 255, 0.05) 100%
+            );
+            transform: translateX(-100%);
+            animation: shimmer 1.2s infinite;
+            opacity: 0;
+            pointer-events: none;
+          }
+
+          .image-loading::before {
+            opacity: 1;
+          }
+
+          .project-image {
+            width: 100%;
+            height: auto;
+            transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+            display: block;
+          }
+
+          .project-image-hidden {
+            opacity: 0;
+            transform: scale(1.03);
+            filter: blur(8px);
+          }
+
+          .project-image-visible {
+            opacity: 1;
+            transform: scale(1);
+            filter: blur(0);
+          }
+
+          @keyframes shimmer {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(100%);
+            }
           }
 
           .project-links {
@@ -308,6 +398,30 @@ const Portfolio = () => {
             position: absolute;
             left: 0;
             color: var(--orange-yellow-crayola);
+          }
+
+          .load-more-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+          }
+
+          .load-more-btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            background: var(--orange-yellow-crayola);
+            color: var(--smoky-black);
+            font-size: var(--fs-6);
+            font-weight: var(--fw-500);
+            box-shadow: var(--shadow-2);
+            transition: var(--transition-1);
+          }
+
+          .load-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-3);
           }
 
           @media (max-width: 640px) {
