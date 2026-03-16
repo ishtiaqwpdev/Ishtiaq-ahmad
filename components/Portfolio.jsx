@@ -150,6 +150,17 @@ const Portfolio = () => {
                   <p>{selectedProject.description || "No description available."}</p>
                 </div>
 
+                {selectedProject.features && selectedProject.features.length > 0 && (
+                  <div className="modal-section">
+                    <h3>Key Features</h3>
+                    <ul className="features-list">
+                      {selectedProject.features.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 <div className="modal-section">
                   <h3>Technologies Used</h3>
                   <div className="tech-tags">
